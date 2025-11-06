@@ -8,6 +8,12 @@
     list-style: none;
 }
 
+/* Core accent colors (keep light and dark consistent) */
+:root{
+    --accent-red: rgba(255, 0, 0, 0.637);
+    --accent-yellow: rgb(255, 238, 0);
+}
+
 header{
     position: fixed;
     top: 1rem;
@@ -23,6 +29,15 @@ header{
     padding: 0.5rem 1.5rem;
     border-radius: 3rem;
     z-index: 1000;
+}
+#theme-icon {
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    /* ensure predictable placement in the header across environments */
+    order: 0;
+    margin-left: 0.4rem;
+    transition: color 0.3s ease-in-out;
 }
 .logo{
     color: white;
@@ -117,8 +132,9 @@ section{
     font-weight: 600;
 }
 .info-box span{
-    background: linear-gradient(to right, rgb(255, 0, 0, 0.637), rgb(255, 238, 0));
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow));
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
     font-size: 2rem;
 }
@@ -203,6 +219,10 @@ section{
     background-color: black;
     color: white;
 }
+body.dark-mode .grid-card:hover {
+    background-color: white;
+    color: black;
+}
 .grid-card i{
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -210,7 +230,8 @@ section{
 .grid-card span{
     font-size: 1.5rem;
     font-weight: 500;
-    background: linear-gradient(to right, rgb(255, 0, 0, 0.637), rgb(255, 238, 0));
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow));
+    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
@@ -221,7 +242,7 @@ section{
     background-color: rgba(219, 219, 219);
 }
 ::-webkit-scrollbar-thumb{
-    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.637), rgb(255, 238, 0));
+    background: linear-gradient(to bottom, var(--accent-red), var(--accent-yellow));
 }
 
 .section-title {
@@ -257,6 +278,12 @@ section{
     transform: translateY(-10px) scale(1.03); 
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     border-color: white; 
+}
+body.dark-mode .project-card:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+    border-color: black;
 }
 .project-card img {
     width: 20vw;
@@ -386,46 +413,151 @@ footer ul li a{
     display: none;
 }
 
-@media(max-width: 768px){
+@media(max-width: 768px) {
     .input textarea {
         min-height: 150px;
         font-size: 1.2rem;
         padding: 0.8rem 1rem;
     }
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    width: 100%; 
-    max-width: 600px;
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100%; 
+        max-width: 600px;
+    }
+    .input textarea {
+        width: 100%;
+        min-height: 200px; 
+        border-radius: 2rem;
+        border: 2px solid black;
+        padding: 1rem 1.5rem;
+        font-size: 1.5rem;
+        resize: vertical;
+        font-family: "Poppins";
+    }
+    .input input[type="email"] {
+        width: 100%; 
+        padding: 2rem 8rem;
+        border-radius: 3rem;
+        border: 2px solid black;
+        font-size: 3rem;
+    }
+    .message-input i {
+        display: none;
+    }
 }
-.input textarea {
-    width: 100%;
-    min-height: 200px; 
-    border-radius: 2rem;
-    border: 2px solid black;
-    padding: 1rem 1.5rem;
-    font-size: 1.5rem;
-    resize: vertical;
-    font-family: "Poppins";
+body.dark-mode {
+    background-color: #1a1a1a !important; 
+    color: #f0f0f0 !important; 
 }
-.input input[type="email"] {
-    width: 100%; 
-    padding: 2rem 8rem;
-    border-radius: 3rem;
-    border: 2px solid black;
-    font-size: 3rem;
+body.dark-mode header {
+    background-color: rgba(30, 30, 30, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+body.dark-mode .logo,
+body.dark-mode li a,
+body.dark-mode .visit-btn {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .section-title,
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode p {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .btn,
+body.dark-mode .project-card .btn {
+    color: #f0f0f0 !important; 
+    border-color: #f0f0f0 !important; 
+    background-color: transparent !important; 
+}
+body.dark-mode .btn:hover {
+    background-color: white !important;
+    color: black !important;
+    border-color: white !important;
+}
+body.dark-mode .grid-card,
+body.dark-mode .project-card {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+body.dark-mode .project-card .btn:hover {
+    background-color: white !important;
+    color: black !important;
+    border-color: white !important;
+}
+body.dark-mode .input input,
+body.dark-mode .input textarea {
+    border-color: #f0f0f0 !important;
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+}
+body.dark-mode .socials a i,
+body.dark-mode .grid-card i {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .socials i:hover {
+    color: rgb(255, 0, 0, 0.637) !important;
+    transform: scale(1.1);
+}
+body.dark-mode footer,
+body.dark-mode footer ul li a,
+body.dark-mode .copyright {
+    color: #f0f0f0 !important;
+}
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .grid-card,
+body.dark-mode .project-card {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+body.dark-mode header {
+    background-color: rgba(30, 30, 30, 0.9) !important;
+}
+body.dark-mode .logo span {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .gradient-text {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
 }
 
-.message-input i {
-    display: none;
+body.dark-mode .visit-btn {
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.8), rgba(255, 238, 0, 0.8)) !important;
 }
-@media(max-width: 768px){
-    .input textarea {
-        min-height: 150px;
-        font-size: 1.2rem;
-        padding: 0.8rem 1rem;
-    }
+body.dark-mode .visit-btn:hover {
+    background: linear-gradient(to right, rgba(255, 238, 0, 0.8), rgba(255, 0, 0, 0.8)) !important;
 }
+body.dark-mode .input input,
+body.dark-mode .input textarea {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: #f0f0f0 !important;
+}
+body.dark-mode .info-box span {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+body.dark-mode .grid-card span {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+body.dark-mode span.gradient-text {
+    color: transparent !important;
 }

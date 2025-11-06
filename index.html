@@ -9,6 +9,22 @@
 </head>
 <body>
 
+    <!-- Early theme initializer: read saved preference and apply before content paints -->
+    <script>
+        (function(){
+            try {
+                const saved = localStorage.getItem('darkModeEnabled');
+                if (saved === 'true') {
+                    document.body.classList.add('dark-mode');
+                } else if (saved === 'false') {
+                    document.body.classList.remove('dark-mode');
+                }
+            } catch (e) {
+                /* ignore */
+            }
+        })();
+    </script>
+
     <header class="header">
         <a href="#" class="logo"><span>Gabriel Santos</span></a>
 
