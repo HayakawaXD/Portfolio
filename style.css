@@ -41,7 +41,11 @@ header{
     /* ensure predictable placement in the header across environments */
     order: 0;
     margin-left: 0.4rem;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#theme-icon:hover {
+    transform: rotate(20deg) scale(1.1);
 }
 .logo{
     color: white;
@@ -215,6 +219,7 @@ section{
     -webkit-background-clip: text;
     color: transparent;
     font-size: 2rem;
+    transition: background 0.3s ease;
 }
 .btn-group{
     display: flex;
@@ -632,116 +637,116 @@ footer ul li a{
         display: none;
     }
 }
+/* Dark mode styles - Desktop and Mobile */
 body.dark-mode {
-    background-color: #1a1a1a !important; 
-    color: #f0f0f0 !important; 
+    background-color: #1a1a1a;
+    color: #f0f0f0;
 }
+
+/* Header and Navigation */
 body.dark-mode header {
-    background-color: rgba(30, 30, 30, 0.9) !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
 }
+
 body.dark-mode .logo,
-body.dark-mode li a,
-body.dark-mode .visit-btn {
-    color: #f0f0f0 !important;
-}
-body.dark-mode .section-title,
-body.dark-mode h1,
-body.dark-mode h3,
-body.dark-mode p {
-    color: #f0f0f0 !important;
-}
-body.dark-mode .btn,
-body.dark-mode .project-card .btn {
-    color: #f0f0f0 !important; 
-    border-color: #f0f0f0 !important; 
-    background-color: transparent !important; 
-}
-body.dark-mode .btn:hover {
-    background-color: white !important;
-    color: black !important;
-    border-color: white !important;
-}
-body.dark-mode .grid-card,
-body.dark-mode .project-card {
-    background-color: #2a2a2a !important;
-    border-color: #444 !important; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
-}
-body.dark-mode .project-card .btn:hover {
-    background-color: white !important;
-    color: black !important;
-    border-color: white !important;
-}
-body.dark-mode .input input,
-body.dark-mode .input textarea {
-    border-color: #f0f0f0 !important;
-    background-color: #2a2a2a !important;
-    color: #f0f0f0 !important;
-}
-body.dark-mode .socials a i,
-body.dark-mode .grid-card i {
-    color: #f0f0f0 !important;
-}
-body.dark-mode .socials i:hover {
-    color: rgb(255, 0, 0, 0.637) !important;
-    transform: scale(1.1);
-}
-body.dark-mode footer,
-body.dark-mode footer ul li a,
-body.dark-mode .copyright {
-    color: #f0f0f0 !important;
-}
-body.dark-mode h1,
-body.dark-mode h3,
-body.dark-mode p,
-body.dark-mode span,
-body.dark-mode a {
-    color: #f0f0f0 !important;
-}
-body.dark-mode .grid-card,
-body.dark-mode .project-card {
-    background-color: #2a2a2a !important;
-    color: #f0f0f0 !important;
-    border-color: #444 !important;
-}
-body.dark-mode header {
-    background-color: rgba(30, 30, 30, 0.9) !important;
-}
-body.dark-mode .logo span {
-    color: #f0f0f0 !important;
-}
-body.dark-mode .gradient-text {
-    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
+body.dark-mode .nav-links a,
+body.dark-mode #theme-icon,
+body.dark-mode #menu-icon {
+    color: #f0f0f0;
 }
 
 body.dark-mode .visit-btn {
-    background: linear-gradient(to right, rgba(255, 0, 0, 0.8), rgba(255, 238, 0, 0.8)) !important;
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow));
 }
+
 body.dark-mode .visit-btn:hover {
-    background: linear-gradient(to right, rgba(255, 238, 0, 0.8), rgba(255, 0, 0, 0.8)) !important;
+    background: linear-gradient(to right, var(--accent-yellow), var(--accent-red));
 }
+
+/* Mobile menu in dark mode */
+@media (max-width: 768px) {
+    body.dark-mode .nav-links {
+        background: rgba(30, 30, 30, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    body.dark-mode #menu-icon {
+        color: #f0f0f0;
+    }
+}
+
+/* Gradient text elements */
+body.dark-mode .info-box span,
+body.dark-mode .grid-card span {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Cards and sections */
+body.dark-mode .grid-card,
+body.dark-mode .project-card {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .grid-card:hover {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+}
+
+body.dark-mode .project-card:hover {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+    border-color: #f0f0f0;
+}
+
+/* Buttons */
+body.dark-mode .btn {
+    color: #f0f0f0;
+    border-color: #f0f0f0;
+    background-color: transparent;
+}
+
+body.dark-mode .btn:hover {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+    border-color: #f0f0f0;
+}
+
+/* Form elements */
 body.dark-mode .input input,
 body.dark-mode .input textarea {
-    background-color: #2a2a2a !important;
-    color: #f0f0f0 !important;
-    border-color: #f0f0f0 !important;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border-color: #444;
 }
-body.dark-mode .info-box span {
-    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
+
+body.dark-mode .input input:focus,
+body.dark-mode .input textarea:focus {
+    border-color: var(--accent-red);
 }
-body.dark-mode .grid-card span {
-    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    color: transparent !important;
+
+/* Icons and social links */
+body.dark-mode .socials a i,
+body.dark-mode .grid-card i {
+    color: #f0f0f0;
 }
-body.dark-mode span.gradient-text {
-    color: transparent !important;
+
+body.dark-mode .socials i:hover {
+    color: var(--accent-red);
+    transform: scale(1.1);
+}
+
+/* Footer */
+body.dark-mode footer ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-mode .copyright {
+    color: #f0f0f0;
 }
