@@ -4,6 +4,8 @@
 const themeIcon = document.querySelector('#theme-icon');
 const body = document.body;
 const darkModeKey = 'darkModeEnabled';
+// Debug helpers to help verify toggle behavior in the browser console
+console.log('[theme] script loaded. themeIcon found?', !!themeIcon);
 
 function applyTheme(isDark) {
     if (isDark) {
@@ -23,6 +25,7 @@ function applyTheme(isDark) {
 
 if (themeIcon) {
     const saved = localStorage.getItem(darkModeKey);
+    console.log('[theme] saved localStorage value:', saved);
     if (saved === 'true') {
         applyTheme(true);
     } else if (saved === 'false') {
@@ -35,6 +38,7 @@ if (themeIcon) {
     themeIcon.addEventListener('click', () => {
         const isDark = body.classList.contains('dark-mode');
         const next = !isDark;
+        console.log('[theme] toggling theme ->', next ? 'dark' : 'light');
         applyTheme(next);
         localStorage.setItem(darkModeKey, next);
     });
