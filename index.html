@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo"><span>Gabriel Santos</span></a>
+
+        <ul class="nav-links">
+            <li> 
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+
+        <i class="fa-solid fa-bars" id= "menu-icon"></i>
+
+       <a href="https://github.com/HayakawaXD" target="_blank" class="visit-btn">Visit my Github</a>
+    </header>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <img src="foto.png" alt="">
+
+            <div class="info-box">
+                <div class=""text">
+                    <h3>Hi, I'm</h3>
+                    <h1>Gabriel</h1>
+                    <span>Backend Developer (Cybersecurity-Focused)</span>
+                </div>
+
+                <div class="btn-group">
+                  <a href="GabrielCV.pdf" download class="btn">Download CV</a> 
+                  <a href="#contact" class="btn">Contact Me</a>
+                </div>
+                <div class="socials">
+                  <a href="https://github.com/HayakawaXD" target="_blank">
+                     <i class="fa-brands fa-github"></i>
+                   </a>
+                  <a href="https://www.linkedin.com/in/gabriel-dos-santos-6a40502b3/" target="_blank">
+                     <i class="fa-brands fa-linkedin"></i>
+                   </a>
+              </div>
+            </div>
+        </div>
+    </section>
+
+
+
+<section id="experience" class="experience">
+
+    <h2 class="section-title">Experience</h2>
+
+    <div class="experience-info">
+
+        <div class="grid">
+            <div class="grid-card">
+                <i class="fa-solid fa-hammer"></i>
+                <span>Refrigeration Assistant I</span>
+                <h3>04/2024 – 08/2024</h3>
+                <p>Assisted in the installation and maintenance of refrigeration systems in containers, ensuring optimal performance and energy efficiency.</p>
+            </div>
+
+            <div class="grid-card">
+                <i class="fa-solid fa-shield"></i>
+                <span>CyberSecurity Enthusiast</span>
+                <h3>08/2025 – Present</h3>
+                <p>Developed a custom File Integrity Monitor (FIM) using SHA-512 hashing, continuously detecting and alerting deviations to ensure system integrity.</p>
+            </div>
+            <div class="grid-card">
+                <i class="fa-solid fa-network-wired"></i>
+                <span>Systems Administrator</span>
+                <h3>09/2025 – Present</h3>
+                <p>Automated user management with PowerShell, configured RAS, DNS, DHCP, and file servers with secure NTFS permissions and quotas.</p>
+            </div>
+            <div class="grid-card">
+                <i class="fa-solid fa-robot"></i>
+                <span>Security Analyst</span>
+                <h3>10/2025 – Present</h3>
+                <p>Installed and managed Nessus Essentials for authenticated scans, built a full vulnerability management cycle from detection to remediation.</p>
+            </div>
+            <div class="grid-card">
+                <i class="fa-solid fa-laptop"></i>
+                <span>Security Analyst – SIEM</span>
+                <h3>10/2025 – Present</h3>
+                <p>Implemented and maintained a Security Information and Event Management (SIEM) system for real-time monitoring and threat detection.</p>   
+              </div>
+          </div>
+
+         <img src="foto.png" alt="">
+    </div>
+</section>
+
+<section id="projects" class="projects">
+
+    <h2 class="section-title">Recent Projects</h2>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+         <img src="API Project.png" alt="API Project">
+         <h3>API Project</h3>
+         <p>Developed a Python Flask REST API with full CRUD operations for vulnerability data, designed to study API structure and security best practices.</p>
+         <div class="btn-group">
+           <a href="#" class="btn">Live Demo</a>
+           <a href="https://github.com/HayakawaXD/REST-API-CyberSecurity" target="_blank" class="btn">Github Repo</a>
+         </div>
+      </div>
+
+      <div class="project-card">
+         <img src="FIM Project.png" alt="FIM Project">
+         <h3>FIM Project</h3>
+         <p>Built a proof-of-concept tool that detects unauthorized file changes using SHA-512 hashing and real-time alerts.</p>
+         <div class="btn-group">
+            <a href="#" class="btn">Live Demo</a>
+            <a href="https://github.com/HayakawaXD/File-Integrity-Monitoring-FIM-" target="_blank" class="btn">Github Repo</a>
+       </div>
+      </div>
+
+      <div class="project-card">
+         <img src="Keylogger Project.png" alt="SIEM Project">
+         <h3>Keylogger Project</h3>
+         <p>Created a proof-of-concept keylogger that logs keystrokes and sends real-time data via Discord webhooks for monitoring demonstrations.</p>
+         <div class="btn-group">
+           <a href="#" class="btn">Live Demo</a>
+           <a href="https://github.com/HayakawaXD/Keylogger-with-Webhook-Discord" target="_blank" class="btn">Github Repo</a>
+       </div>
+      </div>
+
+   </div> 
+   </section>
+   <section class="contact" id="contact">
+    <div class="input-box">
+        <h2 class="section-title">Contact Me</h2>
+        <form action="https://formspree.io/f/meopygww" method="POST" class="contact-form">
+            <div class="input email-input">
+                <input type="email" name="email" placeholder="Seu Email" required> 
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="input message-input"> 
+                <textarea name="message" placeholder="Sua Mensagem..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button> 
+        </form>
+      </div>
+    </section>
+
+   <footer>
+
+     <ul>
+         <li>
+            <a href="#about">About</a>
+         </li>
+
+         <li>
+            <a href="#experience">Experience</a>
+         </li>
+
+         <li>
+            <a href="#projects">Projects</a>
+         </li>
+
+         <li>
+            <a href="#contact">Contact</a>  
+         </li>   
+      </ul>
+
+      <p class="copyright">© All Rights Reserved | Gabriel Santos</p>
+   </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>    
