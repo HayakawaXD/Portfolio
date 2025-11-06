@@ -1,10 +1,3 @@
-git init
-git branch -M main
-git add .
-git commit -m "Initial commit"
-git remote add origin <URL-DO-REPO>
-git push -u origin main
-gh repo create NOME_DO_REPO --public --source=. --remote=origin --push
 The website contains the following content:
 
 - About: Personal presentation and links (CV, GitHub, LinkedIn).
