@@ -637,116 +637,102 @@ footer ul li a{
         display: none;
     }
 }
-/* Dark mode styles - Desktop and Mobile */
+/* Dark mode styles exactly as before */
 body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    background-color: #1a1a1a !important;
+    color: #f0f0f0 !important;
 }
 
-/* Header and Navigation */
 body.dark-mode header {
-    background-color: rgba(30, 30, 30, 0.9);
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(30, 30, 30, 0.9) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 body.dark-mode .logo,
-body.dark-mode .nav-links a,
-body.dark-mode #theme-icon,
-body.dark-mode #menu-icon {
-    color: #f0f0f0;
-}
-
+body.dark-mode li a,
 body.dark-mode .visit-btn {
-    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow));
+    color: #f0f0f0 !important;
 }
 
-body.dark-mode .visit-btn:hover {
-    background: linear-gradient(to right, var(--accent-yellow), var(--accent-red));
+body.dark-mode .section-title,
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode p {
+    color: #f0f0f0 !important;
 }
 
-/* Mobile menu in dark mode */
-@media (max-width: 768px) {
-    body.dark-mode .nav-links {
-        background: rgba(30, 30, 30, 0.95);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    body.dark-mode #menu-icon {
-        color: #f0f0f0;
-    }
-}
-
-/* Gradient text elements */
-body.dark-mode .info-box span,
-body.dark-mode .grid-card span {
-    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-/* Cards and sections */
-body.dark-mode .grid-card,
-body.dark-mode .project-card {
-    background-color: #2a2a2a;
-    border-color: #444;
-    color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-body.dark-mode .grid-card:hover {
-    background-color: #f0f0f0;
-    color: #1a1a1a;
-}
-
-body.dark-mode .project-card:hover {
-    background-color: #f0f0f0;
-    color: #1a1a1a;
-    border-color: #f0f0f0;
-}
-
-/* Buttons */
-body.dark-mode .btn {
-    color: #f0f0f0;
-    border-color: #f0f0f0;
-    background-color: transparent;
+body.dark-mode .btn,
+body.dark-mode .project-card .btn {
+    color: #f0f0f0 !important;
+    border-color: #f0f0f0 !important;
+    background-color: transparent !important;
 }
 
 body.dark-mode .btn:hover {
-    background-color: #f0f0f0;
-    color: #1a1a1a;
-    border-color: #f0f0f0;
+    background-color: #f0f0f0 !important;
+    color: #1a1a1a !important;
+    border-color: #f0f0f0 !important;
 }
 
-/* Form elements */
+body.dark-mode .grid-card,
+body.dark-mode .project-card {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .project-card .btn:hover {
+    background-color: #f0f0f0 !important;
+    color: #1a1a1a !important;
+    border-color: #f0f0f0 !important;
+}
+
 body.dark-mode .input input,
 body.dark-mode .input textarea {
-    background-color: #2a2a2a;
-    color: #f0f0f0;
-    border-color: #444;
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: #f0f0f0 !important;
 }
 
-body.dark-mode .input input:focus,
-body.dark-mode .input textarea:focus {
-    border-color: var(--accent-red);
-}
-
-/* Icons and social links */
 body.dark-mode .socials a i,
 body.dark-mode .grid-card i {
-    color: #f0f0f0;
+    color: #f0f0f0 !important;
 }
 
 body.dark-mode .socials i:hover {
-    color: var(--accent-red);
+    color: var(--accent-red) !important;
     transform: scale(1.1);
 }
 
-/* Footer */
 body.dark-mode footer ul li a {
-    color: #f0f0f0;
+    color: #f0f0f0 !important;
 }
 
 body.dark-mode .copyright {
-    color: #f0f0f0;
+    color: #f0f0f0 !important;
+}
+
+/* Keep gradient text preserved in dark mode */
+body.dark-mode .info-box span,
+body.dark-mode .grid-card span {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
+/* Dark mode specific for mobile menu */
+@media (max-width: 768px) {
+    body.dark-mode .nav-links {
+        background: rgba(30, 30, 30, 0.95) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    body.dark-mode #menu-icon {
+        color: #f0f0f0 !important;
+    }
+    
+    body.dark-mode #theme-icon {
+        color: #f0f0f0 !important;
+    }
 }
