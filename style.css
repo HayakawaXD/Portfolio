@@ -8,14 +8,19 @@
     list-style: none;
 }
 
-/* Core accent colors (keep light and dark consistent) */
-:root{
+/* Core colors and variables */
+:root {
+    /* Theme colors */
+    --bg-light: #ffffff;
+    --bg-dark: #1a1a1a;
+    --text-light: #000000;
+    --text-dark: #f0f0f0;
+    /* Accent colors */
     --accent-red: rgba(255, 0, 0, 0.637);
     --accent-yellow: rgb(255, 238, 0);
-    /* Add breakpoints for responsive design */
-    --mobile: 480px;
-    --tablet: 768px;
-    --desktop: 1024px;
+    /* Dark mode overlay backgrounds */
+    --overlay-dark: rgba(30, 30, 30, 0.9);
+    --card-dark: #2a2a2a;
 }
 
 header{
@@ -41,11 +46,7 @@ header{
     /* ensure predictable placement in the header across environments */
     order: 0;
     margin-left: 0.4rem;
-    transition: all 0.3s ease-in-out;
-}
-
-#theme-icon:hover {
-    transform: rotate(20deg) scale(1.1);
+    transition: color 0.3s ease-in-out;
 }
 .logo{
     color: white;
@@ -99,52 +100,7 @@ li a:hover::before{
 #menu-icon{
     font-size: 2rem;
     display: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
 } 
-
-@media (max-width: 768px) {
-    header {
-        width: 90%;
-        padding: 0.5rem 1rem;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        background: rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(8px);
-        padding: 2rem;
-        border-radius: 1rem;
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s ease;
-    }
-
-    .nav-links.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    #menu-icon {
-        display: block;
-    }
-
-    #menu-icon.fa-xmark {
-        transform: rotate(90deg);
-    }
-
-    .visit-btn {
-        display: none;
-    }
-}
 
 section{
     min-height: 100vh;
@@ -167,35 +123,6 @@ section{
     width: 20vw;
     border-radius: 50%;
 }
-
-@media (max-width: 768px) {
-    section {
-        padding: 6rem 5%;
-    }
-    
-    .about .about-container {
-        flex-direction: column;
-        gap: 3rem;
-    }
-    
-    .about img {
-        width: 60vw;
-        max-width: 250px;
-    }
-    
-    .section-title {
-        font-size: 2.5rem;
-    }
-    
-    .info-box h1 {
-        font-size: 3rem;
-    }
-    
-    .info-box span {
-        font-size: 1.5rem;
-    }
-}
-
 .info-box{
     display: flex;
     flex-direction: column;
@@ -219,7 +146,6 @@ section{
     -webkit-background-clip: text;
     color: transparent;
     font-size: 2rem;
-    transition: background 0.3s ease;
 }
 .btn-group{
     display: flex;
@@ -286,31 +212,6 @@ section{
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
-
-@media (max-width: 768px) {
-    .experience-info {
-        flex-direction: column-reverse;
-        gap: 3rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .experience img {
-        width: 80%;
-        max-width: 300px;
-    }
-
-    .grid-card {
-        padding: 2rem;
-    }
-
-    .grid-card span {
-        font-size: 1.2rem;
-    }
-}
-
 .grid-card{
     border: 2px solid black;
     border-radius: 3rem;
@@ -400,38 +301,6 @@ body.dark-mode .project-card:hover {
     border-radius: 0.8rem;
     margin-bottom: 0.5rem;
 }
-
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-
-    .project-card {
-        padding: 1.5rem;
-    }
-
-    .project-card img {
-        width: 70vw;
-        max-width: 250px;
-    }
-
-    .project-card h3 {
-        font-size: 1.5rem;
-    }
-
-    .project-card .btn-group {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-    }
-
-    .project-card .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
 .project-card h3 {
     font-size: 1.75rem;
     font-weight: 500;
@@ -554,61 +423,12 @@ footer ul li a{
 }
 
 @media(max-width: 768px) {
-    .input-box {
-        width: 100%;
-        padding: 0 1rem;
-    }
-
-    .input input[type="email"],
-    .input input[type="text"] {
-        width: 100%;
-        padding: 1rem;
-        font-size: 1rem;
-        border-radius: 1.5rem;
-    }
-
-    .input-box input::placeholder {
-        font-size: 1rem;
-    }
-
     .input textarea {
         min-height: 150px;
-        font-size: 1rem;
-        padding: 1rem;
-        border-radius: 1rem;
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
     }
-
-    .input i {
-        font-size: 1.5rem;
-        transform: translate(50%, -50%);
-    }
-
     .contact-form {
-        padding: 0 1rem;
-    }
-
-    .contact-form .btn {
-        width: 100%;
-        max-width: 200px;
-    }
-}
-
-/* Mobile footer adjustments */
-@media (max-width: 768px) {
-    footer ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-    
-    .copyright {
-        text-align: center;
-        padding: 0 1rem;
-    }
-}
-
-.contact-form {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -637,102 +457,133 @@ footer ul li a{
         display: none;
     }
 }
-/* Dark mode styles exactly as before */
+/* Ensure background color applies correctly in all views */
+html {
+    background-color: var(--bg-light);
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    min-height: 100vh;
+    width: 100%;
+}
+
 body.dark-mode {
-    background-color: #1a1a1a !important;
-    color: #f0f0f0 !important;
+    background-color: var(--bg-dark) !important;
+    color: var(--text-dark) !important;
 }
 
 body.dark-mode header {
-    background-color: rgba(30, 30, 30, 0.9) !important;
+    background-color: var(--overlay-dark) !important;
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+/* Fix color inheritance in dark mode */
 body.dark-mode .logo,
 body.dark-mode li a,
-body.dark-mode .visit-btn {
-    color: #f0f0f0 !important;
+body.dark-mode .visit-btn,
+body.dark-mode #theme-icon,
+body.dark-mode #menu-icon {
+    color: var(--text-dark) !important;
 }
-
 body.dark-mode .section-title,
 body.dark-mode h1,
 body.dark-mode h3,
 body.dark-mode p {
     color: #f0f0f0 !important;
 }
-
 body.dark-mode .btn,
 body.dark-mode .project-card .btn {
-    color: #f0f0f0 !important;
-    border-color: #f0f0f0 !important;
-    background-color: transparent !important;
+    color: #f0f0f0 !important; 
+    border-color: #f0f0f0 !important; 
+    background-color: transparent !important; 
 }
-
 body.dark-mode .btn:hover {
-    background-color: #f0f0f0 !important;
-    color: #1a1a1a !important;
-    border-color: #f0f0f0 !important;
+    background-color: white !important;
+    color: black !important;
+    border-color: white !important;
 }
-
 body.dark-mode .grid-card,
 body.dark-mode .project-card {
     background-color: #2a2a2a !important;
-    border-color: #444 !important;
+    border-color: #444 !important; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
 }
-
 body.dark-mode .project-card .btn:hover {
-    background-color: #f0f0f0 !important;
-    color: #1a1a1a !important;
-    border-color: #f0f0f0 !important;
+    background-color: white !important;
+    color: black !important;
+    border-color: white !important;
 }
-
 body.dark-mode .input input,
 body.dark-mode .input textarea {
+    border-color: #f0f0f0 !important;
     background-color: #2a2a2a !important;
     color: #f0f0f0 !important;
-    border-color: #f0f0f0 !important;
 }
-
 body.dark-mode .socials a i,
 body.dark-mode .grid-card i {
     color: #f0f0f0 !important;
 }
-
 body.dark-mode .socials i:hover {
-    color: var(--accent-red) !important;
+    color: rgb(255, 0, 0, 0.637) !important;
     transform: scale(1.1);
 }
-
-body.dark-mode footer ul li a {
-    color: #f0f0f0 !important;
-}
-
+body.dark-mode footer,
+body.dark-mode footer ul li a,
 body.dark-mode .copyright {
     color: #f0f0f0 !important;
 }
-
-/* Keep gradient text preserved in dark mode */
-body.dark-mode .info-box span,
-body.dark-mode .grid-card span {
+body.dark-mode h1,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .grid-card,
+body.dark-mode .project-card {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+body.dark-mode header {
+    background-color: rgba(30, 30, 30, 0.9) !important;
+}
+body.dark-mode .logo span {
+    color: #f0f0f0 !important;
+}
+body.dark-mode .gradient-text {
     background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
     -webkit-background-clip: text !important;
     background-clip: text !important;
     color: transparent !important;
 }
 
-/* Dark mode specific for mobile menu */
-@media (max-width: 768px) {
-    body.dark-mode .nav-links {
-        background: rgba(30, 30, 30, 0.95) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
-    
-    body.dark-mode #menu-icon {
-        color: #f0f0f0 !important;
-    }
-    
-    body.dark-mode #theme-icon {
-        color: #f0f0f0 !important;
-    }
+body.dark-mode .visit-btn {
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.8), rgba(255, 238, 0, 0.8)) !important;
+}
+body.dark-mode .visit-btn:hover {
+    background: linear-gradient(to right, rgba(255, 238, 0, 0.8), rgba(255, 0, 0, 0.8)) !important;
+}
+body.dark-mode .input input,
+body.dark-mode .input textarea {
+    background-color: #2a2a2a !important;
+    color: #f0f0f0 !important;
+    border-color: #f0f0f0 !important;
+}
+body.dark-mode .info-box span {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+body.dark-mode .grid-card span {
+    background: linear-gradient(to right, var(--accent-red), var(--accent-yellow)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+body.dark-mode span.gradient-text {
+    color: transparent !important;
 }
