@@ -19,4 +19,4 @@ yarn-error.log*
 
 # Others
 *.env
-*.png
+ # removed png ignore so images can be tracked again

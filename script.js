@@ -1,6 +1,51 @@
+// =======================================================
+// THEME TOGGLE (dark / light) - restores previous behavior
+// =======================================================
+const themeIcon = document.querySelector('#theme-icon');
+const body = document.body;
+const darkModeKey = 'darkModeEnabled';
+
+function applyTheme(isDark) {
+    if (isDark) {
+        body.classList.add('dark-mode');
+        if (themeIcon) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    } else {
+        body.classList.remove('dark-mode');
+        if (themeIcon) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
+}
+
+if (themeIcon) {
+    const saved = localStorage.getItem(darkModeKey);
+    if (saved === 'true') {
+        applyTheme(true);
+    } else if (saved === 'false') {
+        applyTheme(false);
+    } else {
+        // default: keep current body class (if any) or light
+        applyTheme(body.classList.contains('dark-mode'));
+    }
+
+    themeIcon.addEventListener('click', () => {
+        const isDark = body.classList.contains('dark-mode');
+        const next = !isDark;
+        applyTheme(next);
+        localStorage.setItem(darkModeKey, next);
+    });
+}
+
+// =======================================================
+// CONTACT FORM (unchanged)
+// =======================================================
 const contactForm = document.querySelector('.contact-form');
 const submitButton = document.querySelector('.contact-form .btn');
-const formActionUrl = contactForm.action;
+const formActionUrl = contactForm ? contactForm.action : '';
 
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -13,7 +58,7 @@ if (contactForm) {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Accept': 'application/json' 
+                    'Accept': 'application/json'
                 }
             });
             if (response.ok) {
