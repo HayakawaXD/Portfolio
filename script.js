@@ -44,6 +44,33 @@ if (themeIcon) {
     });
 }
 
+// Mobile menu toggle
+const menuIcon = document.querySelector('#menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuIcon && navLinks) {
+    menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuIcon.classList.toggle('fa-xmark');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuIcon.classList.remove('fa-xmark');
+        }
+    });
+
+    // Close menu when clicking a nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuIcon.classList.remove('fa-xmark');
+        });
+    });
+}
+
 // =======================================================
 // CONTACT FORM (unchanged)
 // =======================================================

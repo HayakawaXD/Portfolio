@@ -12,6 +12,10 @@
 :root{
     --accent-red: rgba(255, 0, 0, 0.637);
     --accent-yellow: rgb(255, 238, 0);
+    /* Add breakpoints for responsive design */
+    --mobile: 480px;
+    --tablet: 768px;
+    --desktop: 1024px;
 }
 
 header{
@@ -91,7 +95,52 @@ li a:hover::before{
 #menu-icon{
     font-size: 2rem;
     display: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 } 
+
+@media (max-width: 768px) {
+    header {
+        width: 90%;
+        padding: 0.5rem 1rem;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(8px);
+        padding: 2rem;
+        border-radius: 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    #menu-icon.fa-xmark {
+        transform: rotate(90deg);
+    }
+
+    .visit-btn {
+        display: none;
+    }
+}
 
 section{
     min-height: 100vh;
@@ -114,6 +163,35 @@ section{
     width: 20vw;
     border-radius: 50%;
 }
+
+@media (max-width: 768px) {
+    section {
+        padding: 6rem 5%;
+    }
+    
+    .about .about-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .about img {
+        width: 60vw;
+        max-width: 250px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .info-box h1 {
+        font-size: 3rem;
+    }
+    
+    .info-box span {
+        font-size: 1.5rem;
+    }
+}
+
 .info-box{
     display: flex;
     flex-direction: column;
@@ -203,6 +281,31 @@ section{
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
+
+@media (max-width: 768px) {
+    .experience-info {
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience img {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .grid-card {
+        padding: 2rem;
+    }
+
+    .grid-card span {
+        font-size: 1.2rem;
+    }
+}
+
 .grid-card{
     border: 2px solid black;
     border-radius: 3rem;
@@ -292,6 +395,38 @@ body.dark-mode .project-card:hover {
     border-radius: 0.8rem;
     margin-bottom: 0.5rem;
 }
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .project-card {
+        padding: 1.5rem;
+    }
+
+    .project-card img {
+        width: 70vw;
+        max-width: 250px;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .project-card .btn-group {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .project-card .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .project-card h3 {
     font-size: 1.75rem;
     font-weight: 500;
@@ -414,12 +549,61 @@ footer ul li a{
 }
 
 @media(max-width: 768px) {
+    .input-box {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .input input[type="email"],
+    .input input[type="text"] {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        border-radius: 1.5rem;
+    }
+
+    .input-box input::placeholder {
+        font-size: 1rem;
+    }
+
     .input textarea {
         min-height: 150px;
-        font-size: 1.2rem;
-        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        padding: 1rem;
+        border-radius: 1rem;
     }
+
+    .input i {
+        font-size: 1.5rem;
+        transform: translate(50%, -50%);
+    }
+
     .contact-form {
+        padding: 0 1rem;
+    }
+
+    .contact-form .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Mobile footer adjustments */
+@media (max-width: 768px) {
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .copyright {
+        text-align: center;
+        padding: 0 1rem;
+    }
+}
+
+.contact-form {
         display: flex;
         flex-direction: column;
         align-items: center;
