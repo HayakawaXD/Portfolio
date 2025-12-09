@@ -1,4 +1,33 @@
 // =======================================================
+// Mobile Menu Toggle
+// =======================================================
+const menuIcon = document.querySelector('#menu-icon');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuIcon && navLinks) {
+    menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuIcon.classList.toggle('fa-xmark');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuIcon.classList.remove('fa-xmark');
+        }
+    });
+
+    // Close menu when clicking a nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuIcon.classList.remove('fa-xmark');
+        });
+    });
+}
+
+// =======================================================
 // THEME TOGGLE (dark / light) - restores previous behavior
 // =======================================================
 const themeIcon = document.querySelector('#theme-icon');
@@ -10,12 +39,14 @@ console.log('[theme] script loaded. themeIcon found?', !!themeIcon);
 function applyTheme(isDark) {
     if (isDark) {
         body.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
         if (themeIcon) {
             themeIcon.classList.remove('fa-moon');
             themeIcon.classList.add('fa-sun');
         }
     } else {
         body.classList.remove('dark-mode');
+        document.documentElement.classList.remove('dark-mode');
         if (themeIcon) {
             themeIcon.classList.remove('fa-sun');
             themeIcon.classList.add('fa-moon');
@@ -41,33 +72,6 @@ if (themeIcon) {
         console.log('[theme] toggling theme ->', next ? 'dark' : 'light');
         applyTheme(next);
         localStorage.setItem(darkModeKey, next);
-    });
-}
-
-// Mobile menu toggle
-const menuIcon = document.querySelector('#menu-icon');
-const navLinks = document.querySelector('.nav-links');
-
-if (menuIcon && navLinks) {
-    menuIcon.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuIcon.classList.toggle('fa-xmark');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
-            navLinks.classList.remove('active');
-            menuIcon.classList.remove('fa-xmark');
-        }
-    });
-
-    // Close menu when clicking a nav link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuIcon.classList.remove('fa-xmark');
-        });
     });
 }
 
